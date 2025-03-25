@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSRF Protected Form</title>
+  </head>
+  <body>
+    <h1>轉帳表單</h1>
+    <form action="/transfer" method="POST">
+      <!-- CSRF Token 隱藏欄位 -->
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+      <label for="recipient">收款人帳號：</label>
+      <input type="text" id="recipient" name="recipient" required /><br /><br />
+
+      <label for="amount">轉帳金額：</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        required
+        min="1"
+      /><br /><br />
+
+      <button type="submit">確認轉帳</button>
+    </form>
+  </body>
+</html>
